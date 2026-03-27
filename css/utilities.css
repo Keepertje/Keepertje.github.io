@@ -221,7 +221,6 @@
 
 .lcars-elbow {
   position: relative;
-  background: var(--background);
   width: var(--elbow-width);
   height: 10rem;
   transition: all 300ms ease-in;
@@ -279,6 +278,7 @@
   position: relative;
   padding: 0.5rem 1rem; /* Space between the brackets and your content */
   width: fit-content; /* Hugs whatever content is inside it tightly */
+  height: fit-content;
 }
 
 .bracket::before,
@@ -304,4 +304,18 @@
   border-left: none;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+}
+
+@keyframes slideInFade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-appear {
+  opacity: 0;
+  animation: slideInFade 0.5s ease-out forwards;
 }

@@ -7,6 +7,12 @@
     --nav-width: 240px;
   }
 
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5rem;
+  }
   canvas {
     display: block;
     position: fixed;
@@ -16,13 +22,15 @@
 }
 
 @layer lcars {
-  button {
+  button,
+  a.button {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
     width: var(--nav-width);
-    height: calc(var(--nav-width) / 2.8);
+    height: calc(var(--nav-width) / 4);
     padding-inline: 1.5rem;
     padding-bottom: 0.7rem;
     border-radius: 100vmax;
@@ -30,24 +38,61 @@
     line-height: 1.175;
     text-decoration: none;
     text-transform: uppercase;
+    font-size: 1rem;
     font-weight: bold;
     color: black;
     border: none;
 
     &:hover {
       cursor: pointer;
-      filter: brightness(115%);
+      filter: brightness(120%);
+    }
+
+    &:focus-visible {
+      cursor: pointer;
+      filter: brightness(120%);
+      outline-color: unset;
+      box-shadow:
+        0 0 10px var(--space-white),
+        0 0 5px var(--space-white); /* Glow */
     }
   }
 
-  .content {
+  .about-me {
     display: flex;
     flex-direction: row;
     gap: 2rem;
+    padding: 1rem 0;
 
     .info {
       color: var(--orange);
-      font-size: larger;
+      font-size: x-large;
+
+      .buttons {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+      }
+      p {
+        opacity: 0; /* Start hidden */
+        animation: text-appear 0.4s ease-out forwards;
+      }
+
+      p {
+        animation-delay: calc(sibling-index() * 0.2s);
+      }
+    }
+  }
+
+  #information {
+    max-width: 150rem;
+    aspect-ratio: 16 / 9;
+  }
+  @media screen and (max-width: 992px) {
+    .about-me {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
   }
 
@@ -203,4 +248,15 @@
     top: 270px;
     opacity: 0;
   } /* Disappear at bottom and fade out */
+}
+
+@keyframes text-appear {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

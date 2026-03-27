@@ -33,6 +33,16 @@ html {
   color: var(--space-white);
 }
 
+html {
+  background: black;
+}
 body {
   padding: 1rem;
+}
+
+.text {
+  color: var(--golden-orange);
+  font-size: x-large;
+  padding: 0 1rem;
+  text-transform: uppercase;
 }

@@ -30,31 +30,49 @@
   </head>
 
   <body>
-    <section class="information">
+    <section id="information" class="animate-appear">
       <lcars-card header="Cindy Berghuizen">
         <div slot="content">
-          <div class="content">
+          <div class="about-me">
             <div class="bracket">
               <div class="profile-container">
-                <img id="img-el" src="./images/2.jpg" alt="Profile Subject" />
+                <img id="img-el" src="./images/2.jpg" alt="Profile picture" />
               </div>
             </div>
-            <div class="info">Hi, I am Cindy. Software engineering with a passion for the frontend of the job.</div>
+            <div class="info">
+              <p>I am a software engineer with a strong preference for the frontend. My current primary stack is Angular and Node.js.</p>
+              <p>While I am comfortable writing server-side logic and building APIs I get truly happy when I can move pixels around.</p>
+              <p>When I am not sitting behind a computer you can find me outside: biking, running, walking, windsurfing or in my vegetable garden.</p>
+              <p class="buttons">
+                <a class="button bg-african-violet" href="https://www.linkedin.com/in/cindy-berghuizen/" target="_blank">LinkedIn</a>
+                <a class="button bg-sky" href="https://github.com/Keepertje" target="_blank">Github</a>
+              </p>
+            </div>
           </div>
         </div>
       </lcars-card>
     </section>
 
-    <section id="contact"></section>
-
-    <!-- TODO: put behind a menu slide in thingy. Add more options.-->
-    <section id="controls">
-      <!-- Don't put in a card but a seperate control panel kind of thing. 
-       Add theme-ing options for the card. -->
-      <lcars-card theme="red-alert" header="Controls">
+    <!-- TODO: put behind a menu slide in thingy admin panel. Add more options like red-alert.
+    <section id="controls" class="animate-appear">
+      <lcars-card header="Control panel">
         <div slot="content">
-          <div class="content">
-            <div id="slider">
+          <div class="control-panel">
+            <div class="button-panel">
+              <button
+                class="bg-red"
+                onclick="
+                  document
+                    .querySelectorAll('lcars-card')
+                    .forEach((card) =>
+                      card.getAttribute('theme') === 'red-alert' ? card.removeAttribute('theme') : card.setAttribute('theme', 'red-alert'),
+                    )
+                "
+              >
+                Red alert!
+              </button>
+            </div>
+            <div id="sliders">
               <div class="slider-module">
                 <input type="range" id="powerSlider" min="0" max="60" value="20" step="10" orient="vertical" />
 
@@ -75,7 +93,7 @@
           </div>
         </div>
       </lcars-card>
-    </section>
+    </section> -->
     <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <script src="components/lcars-card/lcars-card.js"></script>

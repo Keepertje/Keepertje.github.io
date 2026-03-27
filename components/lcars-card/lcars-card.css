@@ -4,12 +4,12 @@
 /* Default Palette */
 :host {
   display: block;
-  width: calc(100% - 1rem);
-  padding: 1rem;
+  margin: 1rem;
+  width: min-content;
   --elbow-width: 10rem;
   --gap-size: 0.5rem;
 
-  --color-one: var(--bluey);
+  --color-one: var(--sky);
   --color-two: var(--gold);
   --color-three: var(--almond);
   --color-four: var(--african-violet);
@@ -41,6 +41,7 @@
 .lcars-card {
   display: grid;
   grid-template-columns: 10rem 1fr 10rem;
+  aspect-ratio: 16 / 9;
   background-color: rgba(0, 0, 0, 0.6);
 }
 
