@@ -175,3 +175,67 @@
     margin-right: 2rem;
   }
 }
+
+@media (max-width: 900px) {
+  :host {
+    --elbow-width: 2rem;
+    width: auto;
+    margin: 0.5rem;
+  }
+
+  .lcars-card {
+    grid-template-columns: 2rem 1fr 2rem;
+    aspect-ratio: 3 / 4;
+  }
+
+  .col-left {
+    --elbow-inner-width: 1rem;
+  }
+
+  .col-right {
+    --elbow-inner-width: 1rem;
+  }
+
+  .foot-2 {
+    min-width: 2rem;
+  }
+
+  .foot-3 {
+    min-width: 4rem;
+  }
+
+  #header #header-text {
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+  }
+
+  .num {
+    display: none;
+  }
+}
+
+@media (max-width: 592px) {
+  :host {
+    --elbow-width: 2rem;
+    width: auto;
+    margin: 0.5rem;
+  }
+
+  .lcars-card {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .col-left,
+  .col-right {
+    display: none;
+  }
+
+  #header #header-text {
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+  }
+
+  .num {
+    display: none;
+  }
+}
