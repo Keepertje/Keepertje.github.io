@@ -55,13 +55,16 @@
           </div>
         </lcars-card>
       </section>
-    </main>
+      <section id="control-panel">
+        <div class="lcars-bar bg-sky"></div>
+        <button class="bg-sky" onclick="document.getElementById('controls').toggleAttribute('hidden')">Control panel [WIP]</button>
+        <div class="lcars-bar bg-gold"></div>
+        <div class="lcars-bar rounded-right bg-african-violet"></div>
+      </section>
 
-    <!-- TODO: put behind a menu slide in thingy admin panel. Add more options like red-alert.
-    <section id="controls" class="animate-appear">
-      <lcars-card header="Control panel">
-        <div slot="content">
-          <div class="control-panel">
+      <section id="controls" class="animate-appear" hidden>
+        <div class="content">
+          <div class="bracket">
             <div class="button-panel">
               <button
                 class="bg-red"
@@ -96,8 +99,9 @@
             </div>
           </div>
         </div>
-      </lcars-card>
-    </section> -->
+      </section>
+    </main>
+
     <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <script src="components/lcars-card/lcars-card.js"></script>

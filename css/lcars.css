@@ -11,7 +11,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5rem;
+    gap: 2rem;
     width: 100%;
   }
   canvas {
@@ -141,6 +141,13 @@
     animation: scanBeam 3s ease-in-out infinite alternate;
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    .profile-container::before {
+      height: 0;
+      animation: none;
+    }
+  }
+
   /* SLIDER */
 
   /* Slider container */
@@ -224,6 +231,30 @@
     line-height: 1;
     transform: translateY(50%); /* Centers the number over the black border line */
     z-index: 2;
+  }
+
+  #control-panel {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: var(--gap);
+    .lcars-bar {
+      flex-grow: 1;
+    }
+
+    button {
+      height: 1.5rem;
+      border-radius: 0 100vmax 100vmax 0;
+      padding-bottom: 0;
+    }
+  }
+
+  #controls .content .bracket {
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: space-around;
   }
 }
 
