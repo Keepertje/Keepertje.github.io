@@ -1,0 +1,38 @@
+:root {
+  --african-violet: #c9f;
+  --almond: #ffaa90;
+  --almond-creme: #fba;
+  --blue: #56f;
+  --bluey: #89f;
+  --butterscotch: #f96;
+  --gold: #fa0;
+  --golden-orange: #f90;
+  --gray: #668;
+  --green: #993;
+  --ice: #9cf;
+  --lilac: #c5f;
+  --lima-bean: #cc6;
+  --magenta: #c59;
+  --mars: #f20;
+  --moonlit-violet: #96f;
+  --orange: #f80;
+  --peach: #f86;
+  --red: #c44;
+  --sky: #aaf;
+  --space-white: #f5f6fa;
+  --sunflower: #fc9;
+  --tomato: #f55;
+  --violet-creme: #dbf;
+}
+
+body,
+html {
+  height: 100%;
+  margin: 0;
+  font-family: "Antonio", "Arial Narrow", "Avenir Next Condensed", sans-serif;
+  color: var(--space-white);
+}
+
+body {
+  padding: 1rem;
+}

@@ -17,15 +17,11 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- FONT
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-
-    <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css" />
-
     <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/utilities.css" />
+    <link rel="stylesheet" href="css/lcars.css" />
 
     <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -34,14 +30,63 @@
   </head>
 
   <body>
-    <!-- Primary Page Layout
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-
-    <section>
-      <div>Under Construction</div>
+    <section class="information">
+      <lcars-card header="Cindy Berghuizen">
+        <div slot="content">
+          <div class="content">
+            <div class="bracket">
+              <div class="profile-container">
+                <img id="img-el" src="./images/2.jpg" alt="Profile Subject" />
+              </div>
+            </div>
+            <div class="info">Hi, I am Cindy. Software engineering with a passion for the frontend of the job.</div>
+          </div>
+        </div>
+      </lcars-card>
     </section>
 
+    <section id="contact"></section>
+
+    <!-- TODO: put behind a menu slide in thingy. Add more options.-->
+    <section id="controls">
+      <!-- Don't put in a card but a seperate control panel kind of thing. 
+       Add theme-ing options for the card. -->
+      <lcars-card theme="red-alert" header="Controls">
+        <div slot="content">
+          <div class="content">
+            <div id="slider">
+              <div class="slider-module">
+                <input type="range" id="powerSlider" min="0" max="60" value="20" step="10" orient="vertical" />
+
+                <div class="visual-track">
+                  <div class="fill-level" id="fillLevel"></div>
+
+                  <div class="ticks-overlay">
+                    <div class="tick"><span class="tick-num">5</span></div>
+                    <div class="tick"><span class="tick-num">4</span></div>
+                    <div class="tick"><span class="tick-num">3</span></div>
+                    <div class="tick"><span class="tick-num">2</span></div>
+                    <div class="tick"><span class="tick-num">1</span></div>
+                    <div class="tick"><span class="tick-num"></span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </lcars-card>
+    </section>
     <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <script src="components/lcars-card/lcars-card.js"></script>
+    <script src="./scripts/slider.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.183.2/build/three.module.js"
+        }
+      }
+    </script>
+    <script type="module" src="./scripts/stars.js"></script>
   </body>
 </html>

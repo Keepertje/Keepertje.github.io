@@ -1,0 +1,206 @@
+@import "./theme.css" layer(theme);
+@import "./utilities.css" layer(utilities);
+
+@layer root, theme, lcars, utilities;
+@layer root {
+  :root {
+    --nav-width: 240px;
+  }
+
+  canvas {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+  }
+}
+
+@layer lcars {
+  button {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: var(--nav-width);
+    height: calc(var(--nav-width) / 2.8);
+    padding-inline: 1.5rem;
+    padding-bottom: 0.7rem;
+    border-radius: 100vmax;
+    text-align: right;
+    line-height: 1.175;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: black;
+    border: none;
+
+    &:hover {
+      cursor: pointer;
+      filter: brightness(115%);
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+
+    .info {
+      color: var(--orange);
+      font-size: larger;
+    }
+  }
+
+  .profile-container {
+    width: 230px;
+    height: 270px;
+    border-radius: 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    overflow: hidden;
+    position: relative;
+  }
+  .profile-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: sepia(100%) hue-rotate(20deg) saturate(112%) brightness(100%) contrast(100%);
+  }
+  .profile-container::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+  }
+
+  /* The Scanning Beam */
+  .profile-container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 2px; /* Line thickness */
+    background: var(--space-white);
+    box-shadow:
+      0 0 10px var(--space-white),
+      0 0 5px var(--space-white); /* Glow */
+    pointer-events: none;
+    z-index: 10; /* Put it above */
+    animation: scanBeam 3s ease-in-out infinite alternate;
+  }
+
+  /* SLIDER */
+
+  /* Slider container */
+  .slider-module {
+    position: relative;
+    width: 80px;
+    height: 350px;
+  }
+
+  /* Hidden input rotated for vertical use */
+  input[type="range"] {
+    position: absolute;
+    width: 350px;
+    height: 80px;
+    top: 135px;
+    left: -135px;
+    transform: rotate(-90deg);
+    opacity: 0; /* Fully hidden */
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  /* The visual LCARS track casing */
+  .visual-track {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    border: 4px solid var(--golden-orange);
+    border-radius: 4px;
+    pointer-events: none; /* Let clicks pass through to the hidden input */
+    overflow: hidden;
+  }
+
+  /* The dynamic gradient fill */
+  .fill-level {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 35%; /* Will be updated via JS */
+    background: linear-gradient(to top, var(--golden-orange) 0%, var(--orange) 100%);
+    transition: height 0.1s ease-out;
+  }
+
+  /* Ticks overlay to "cut" through the fill */
+  .ticks-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  /* Individual tick mark sections */
+  .tick {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    border-bottom: 8px solid #000; /* Creates the thick black horizontal lines */
+    position: relative;
+  }
+
+  /* Removes the bottom border on the very last tick to keep it flush */
+  .tick:last-child {
+    border-bottom: none;
+  }
+
+  /* The numbers on the slider */
+  .tick-num {
+    color: #a2c4fa;
+    background-color: #000;
+    padding: 0 4px;
+    font-size: 22px;
+    line-height: 1;
+    transform: translateY(50%); /* Centers the number over the black border line */
+    z-index: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --elbow-width: 7rem;
+    --elbow-rounding-base: 4rem;
+  }
+}
+
+/* The scanning movement animation */
+@keyframes scanBeam {
+  0% {
+    top: -2px;
+    opacity: 0;
+  } /* Start just above and hidden */
+  15% {
+    opacity: 0.5;
+  } /* Fade in quickly */
+  50% {
+    opacity: 0.8;
+  } /* Midway and brightest */
+  85% {
+    opacity: 0.5;
+  } /* Still mostly bright at the end */
+  100% {
+    top: 270px;
+    opacity: 0;
+  } /* Disappear at bottom and fade out */
+}
